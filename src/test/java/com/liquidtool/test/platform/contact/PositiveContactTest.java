@@ -16,7 +16,7 @@ public class PositiveContactTest extends TestUtilities {
         LogInPage logInPage = new LogInPage(driver, log);
         logInPage.openPage();
 
-        logInPage.logIn("yurii.myronov@mailinator.com", "Pa$$word!");
+        logInPage.logIn("pevacem@mailinator.com", "Pa$$word!");
 
         //Click contactUs button
         logInPage.contactUs();

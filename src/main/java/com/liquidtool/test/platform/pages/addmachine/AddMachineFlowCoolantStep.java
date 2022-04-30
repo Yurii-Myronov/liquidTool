@@ -40,6 +40,7 @@ public class AddMachineFlowCoolantStep extends BasePageObject {
     private By backButtonLocator = By.xpath("//span[normalize-space()='Back']");
     private static By nextButtonLocator = By.xpath("//button[@id='next_btn']");
     private static By checkBox = By.xpath("//input[@type='checkbox']");
+    private static By acceptCookies = By.xpath("//button[@id='accept-cookies']");
 
     public AddMachineFlowCoolantStep(WebDriver driver, Logger log) {
         super(driver, log);
@@ -106,7 +107,7 @@ public class AddMachineFlowCoolantStep extends BasePageObject {
     public static void scrollTo() {
         log.info("Scroll");
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("window.scrollTo(0, 750)", "");
+        jsExecutor.executeScript("window.scrollTo(0, 800)", "");
 
     }
 
@@ -146,6 +147,12 @@ public class AddMachineFlowCoolantStep extends BasePageObject {
         click(nextButtonLocator);
         return new AddMachineFlowCoolantStep(driver, log);
 
+    }
+
+    /** Accept cookies */
+    public static AddMachineFlowCoolantStep acceptCookies() {
+        click(acceptCookies);
+        return new AddMachineFlowCoolantStep(driver, log);
     }
 
     /**
