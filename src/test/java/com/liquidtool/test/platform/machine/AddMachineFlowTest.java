@@ -21,7 +21,7 @@ public class AddMachineFlowTest extends TestUtilities {
         logInPage.openPage();
 
         //Execute log in
-        logInPage.logIn("botscrew.qa@gmail.com", "Pa$$w0rd!");
+        logInPage.logIn("pevacem@mailinator.com.com", "Pa$$w0rd!");
 
         // Open the Machines page
         HomePage.coolantManagerButton();
@@ -104,7 +104,7 @@ public class AddMachineFlowTest extends TestUtilities {
         AddMachineFlowSummaryStep.scrollToBottom();
 
         //Create machine
-        //AddMachineFlowSummaryStep.finish();
+        AddMachineFlowSummaryStep.finish();
 
     }
 
@@ -117,7 +117,7 @@ public class AddMachineFlowTest extends TestUtilities {
         logInPage.openPage();
 
         //Execute log in
-        logInPage.logIn("botscrew.qa@gmail.com", "Pa$$w0rd!");
+        logInPage.logIn("pevacem@mailinator.com", "Pa$$w0rd!");
 
         // Open the Machines page
         HomePage.coolantManagerButton();
@@ -217,7 +217,7 @@ public class AddMachineFlowTest extends TestUtilities {
         AddMachineFlowSummaryStep.scrollToBottom();
 
         //Create machine
-        //AddMachineFlowSummaryStep.finish();
+        AddMachineFlowSummaryStep.finish();
 
     }
 
@@ -230,7 +230,7 @@ public class AddMachineFlowTest extends TestUtilities {
         logInPage.openPage();
 
         //Execute log in
-        logInPage.logIn("botscrew.qa@gmail.com", "Pa$$w0rd!");
+        logInPage.logIn("pevacem@mailinator.com", "Pa$$w0rd!");
 
         // Open the Machines page
         HomePage.coolantManagerButton();
@@ -264,7 +264,7 @@ public class AddMachineFlowTest extends TestUtilities {
         AddMachineFlowMachineStep.selectMachineModel();
 
         //Fill fields
-        AddMachineFlowMachineStep.firstStep("Auto-test-1", "300");
+        AddMachineFlowMachineStep.firstStep("Auto-test-3", "300");
 
         //Scroll to the bottom
         AddMachineFlowMachineStep.scrollToBottom();
@@ -290,11 +290,11 @@ public class AddMachineFlowTest extends TestUtilities {
         //Scroll to limits
         AddMachineFlowCoolantStep.scrollTo();
 
+        //Accept Cookies
+        AddMachineFlowCoolantStep.acceptCookies();
+
         //Check visibility of limit fields
         Assert.assertTrue(AddMachineFlowCoolantStep.concentrationLimitsFields(), "Concentration fields are not visible");
-
-        //Set concentration limits
-        AddMachineFlowCoolantStep.enterLimits("1", "2", "3");
 
         //Set Temperature, pH, Hardness, Nitrite, Conductivity limits
         //Select all checkboxes
@@ -325,8 +325,8 @@ public class AddMachineFlowTest extends TestUtilities {
         AddMachineFlowSummaryStep.scrollToBottom();
 
         //Create machine
-        //AddMachineFlowSummaryStep.finish();
+        AddMachineFlowSummaryStep.finish();
 
     }
 
-    }
+}

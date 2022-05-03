@@ -17,7 +17,7 @@ public class LogInTest extends TestUtilities {
         logInPage.openPage();
 
         //Execute log in
-        logInPage.logIn("yurii.myronov@mailinator.com", "Pa$$w0rd!");
+        logInPage.logIn("pevacem@mailinator.com", "Pa$$w0rd!");
 
         //Verification
         //Profile icon is visible
@@ -33,7 +33,7 @@ public class LogInTest extends TestUtilities {
         LogInPage logInPage = new LogInPage(driver, log);
         logInPage.openPage();
 
-        logInPage.logIn("yurii.myronov@mailinator.com", "Pa$$word!");
+        logInPage.logIn("pevacem@mailinator.com", "Pa$$word!");
 
         //Verification
         LogInPage.waitForErrorMessage();
