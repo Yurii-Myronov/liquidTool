@@ -4,12 +4,14 @@ import com.liquidtool.test.platform.base.BasePageObject;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ProfilePage extends BasePageObject {
 
     private static String pageUrl = "https://platform.test.liquidtool.com/profile/profile";
 
     private static By uploadUserImage = By.xpath("//button[@id='upload_avatar_btn']");
+    private static By uploadUsrImageInputLocator = By.xpath("//input[@type='file']");
     private static By deleteUserImage = By.xpath("//span[@id='delete_avatar_btn']");
     private static By titleDropdown = By.xpath("//div[@id='title_selectbox']");
     private static By selectTitle = By.xpath("//li[@class='MuiButtonBase-root-15516 MuiListItem-root-15508 MuiMenuItem-root-15505 Mui-selected MuiMenuItem-gutters-15506 MuiListItem-gutters-15513 MuiListItem-button-15514 Mui-selected']");
@@ -24,18 +26,19 @@ public class ProfilePage extends BasePageObject {
 
     }
 
-//    /** Click upload button */
-//    public static ProfilePage uploadImage() {
-//        click(uploadUserImage);
-//        return new ProfilePage(driver, log);
+    /** Click upload button */
+   public static ProfilePage uploadImage() {
+        click(uploadUserImage);
+        return new ProfilePage(driver, log);
 
-//    }
+   }
 
-    /** Select file */
+    /** Select and set file */
     public static void selectFile(String fileName) {
         log.info("Selecting '" + fileName + "' file from Files folder");
-        String filePath = System.getProperty("user.dir") + "src/main/resources/files/" + fileName;
-        type(filePath, uploadUserImage);
+        WebElement uploadFile = driver.findElement(uploadUsrImageInputLocator);
+        String filePath = System.getProperty("user.dir") + "//src//main//resources//files//" + fileName;
+        uploadFile.sendKeys(filePath);
         log.info("File uploaded");
     }
 }
