@@ -31,10 +31,10 @@ public class UserProfileTest extends TestUtilities {
         HomePage.myProfile();
 
         //Click Upload button
-        //ProfilePage.uploadImage();
+        ProfilePage.uploadImage();
 
         //Select image
-        String fileName = "images (5).jpeg";
+        String fileName = "images (6).jpeg";
         ProfilePage.selectFile(fileName);
 
         sleep(9000);
