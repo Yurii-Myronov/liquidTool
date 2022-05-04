@@ -1,11 +1,11 @@
 package com.liquidtool.test.platform.base;
 
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.logging.Logs;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 
@@ -122,9 +123,31 @@ public class BasePageObject {
         }
     }
 
-    /** Find all elements using given locator */
+    /**
+     * Find all elements using given locator
+     */
     protected static List<WebElement> findAll(By locator) {
         return driver.findElements(locator);
-
     }
+
+
+    // File interaction
+    public static boolean ElementsInteraction(By locator) {
+        boolean result = false;
+        int attempts = 0;
+        while (attempts < 10) {
+            try {
+                WebElement element = driver.findElement(locator);
+                String js = "arguments[0].style.display='inline';";
+                ((JavascriptExecutor) driver).executeScript(js, element);
+                result = true;
+                break;
+            } catch (StaleElementReferenceException | NoSuchElementException | NullPointerException e) {
+            }
+            attempts++;
+        }
+        return result;
+    }
+
+
 }

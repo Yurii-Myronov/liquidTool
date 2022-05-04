@@ -21,7 +21,7 @@ public class UserProfileTest extends TestUtilities {
         logInPage.logIn("pevacem@mailinator.com", "Pa$$w0rd!");
 
         //Verification
-        //Profile icon is visible
+        //Profile icon is visible®
         Assert.assertTrue(HomePage.isProfileIconVisible(), "Profile icon is not visible");
 
         //Scroll to bottom
@@ -30,13 +30,18 @@ public class UserProfileTest extends TestUtilities {
         //Open UserProfile page
         HomePage.myProfile();
 
-        //Click Upload button
-        //ProfilePage.uploadImage();
+        // Click Upload button
+        ProfilePage.LocatorInteraction();
 
         //Select image
-        String fileName = "images (5).jpeg";
+        String fileName = "images1.jpeg";
         ProfilePage.selectFile(fileName);
 
-        sleep(9000);
+       /* // Get the First name of uploaded file
+        String avatarName = ProfilePage.getAvatar();
+
+        // Verify selected file uploaded
+        Assert.assertTrue(avatarName.contains("blob:https://platform.test.liquidtool.com/"),
+        "User Avatar (" + avatarName + ") is not one of the uploaded (" + avatarName + ")");*/
     }
 }
